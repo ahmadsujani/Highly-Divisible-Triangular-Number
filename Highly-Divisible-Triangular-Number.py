@@ -2,30 +2,13 @@ num = 1
 triangleNum = 0
 import math
     
-def FactorCount(numCheck):
-    primeCount = []
-    tempNum = numCheck
-    testPrime = 2
-    counter = 1
-    returnTotal = 1
-    while testPrime <= math.sqrt(numCheck):
-        if tempNum % testPrime == 0:
-            counter += 1
-            tempNum = tempNum / testPrime
-        else:
-            primeCount.append(counter)
-            testPrime = NextPrime(testPrime)
-            counter = 1
-    for x in primeCount:
-        returnTotal = returnTotal * x
-    return returnTotal
-    
 def DivisorCount(numCheck):
     tempNum = numCheck
     testPrime = 2
     counter = 1
     returnTotal = 1
-    while testPrime <= math.sqrt(numCheck):
+    sqrtNum = math.sqrt(numCheck)
+    while testPrime <= sqrtNum:
         if tempNum % testPrime == 0:
             counter += 1
             tempNum = tempNum / testPrime
@@ -34,8 +17,6 @@ def DivisorCount(numCheck):
             testPrime = NextPrime(testPrime)
             counter = 1
     return returnTotal
-    
-    
     
 def CheckPrime(numCheck):
     i = 2
