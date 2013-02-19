@@ -19,7 +19,24 @@ def FactorCount(numCheck):
     for x in primeCount:
         returnTotal = returnTotal * x
     return returnTotal
-
+    
+def DivisorCount(numCheck):
+    tempNum = numCheck
+    testPrime = 2
+    counter = 1
+    returnTotal = 1
+    while testPrime <= math.sqrt(numCheck):
+        if tempNum % testPrime == 0:
+            counter += 1
+            tempNum = tempNum / testPrime
+        else:
+            returnTotal = returnTotal * counter
+            testPrime = NextPrime(testPrime)
+            counter = 1
+    return returnTotal
+    
+    
+    
 def CheckPrime(numCheck):
     i = 2
     maxCheck = math.sqrt(numCheck)
@@ -38,7 +55,7 @@ def NextPrime(numCheck):
             
 while True:
     triangleNum = triangleNum + num
-    if FactorCount(triangleNum) > 500:
+    if DivisorCount(triangleNum) > 500:
         break;
     else:
         num += 1
